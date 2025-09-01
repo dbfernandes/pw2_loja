@@ -1,0 +1,20 @@
+services:
+  backend-dev: 
+    build:
+      context: .
+      target: development
+    restart: always
+    ports:
+      - 7788:6677
+    volumes:
+      - .:/apps
+    env_file: .env
+  db:
+    image: mysql:8.4.6-oraclelinux9
+    restart: always
+    ports:
+      - 3317:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: myappdb  
+
