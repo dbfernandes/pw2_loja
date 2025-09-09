@@ -17,8 +17,5 @@ CMD [ "npm", "run", "start:prod" ]
 FROM node:22-alpine3.22 AS development
 WORKDIR /app
 ENV NODE_ENV=development
-COPY package*.json .
-RUN npm install
-COPY . .
 EXPOSE 6677
 CMD [ "npm", "start"]
