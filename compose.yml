@@ -1,5 +1,6 @@
 services:
   backend-dev: 
+    container_name: backend-dev
     build:
       context: ./backend
       target: development

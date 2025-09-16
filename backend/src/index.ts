@@ -1,15 +1,12 @@
 import express from "express"
-import dotenv from "dotenv"
+import getEnv from "./utils/getEnv"
+import router from "./router/router"
 
-dotenv.config()
-
+const env = getEnv()
 const app = express()
-const PORT = process.env.PORT ?? 7788
 
-app.get("/", (req, res) => {
-  res.send("Olá, bem-vindo(a) ao curso de PW2!")
-})
+app.use(router)
 
-app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}.`)
+app.listen(env.PORT, () => {
+  console.log(`App running on port ${env.PORT}.`)
 })
